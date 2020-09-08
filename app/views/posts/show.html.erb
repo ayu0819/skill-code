@@ -1,12 +1,15 @@
-<div class="main posts-show">
-  <div class="container">
-    <div class="posts-show-item">
-      <p>
-        <%= @post.content %>
-      </p>
-      <div class="post-time">
-        <%= @post.created_at %>
-      </div>
-    </div>
-  </div>
+<section class="container">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<div class="container">
+<%= @post.body %>
 </div>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
+</section>

@@ -9,6 +9,6 @@ class PostsController < ApplicationController
   end
   
   # newアクションを追加してください
-  # def new
-  # end
+  def new
+  end
 end

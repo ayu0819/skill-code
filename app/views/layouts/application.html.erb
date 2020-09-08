@@ -19,18 +19,22 @@
     </button>
       <div class="collapse navbar-collapse" id="navbarLight">
         <ul class="navbar-nav ml-auto">
+         
           <li class="nav-item dropdown mx-2"> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 About
                 </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown"> <a class="dropdown-item" href="#">Design</a> <a class="dropdown-item" href="#">Programming</a> <a class="dropdown-item" href="#">Consulting</a> <a class="dropdown-item" href="#">Hosting</a> <a class="dropdown-item" href="#">Editing</a> </div>
           </li>
+        </ul>
+                   <%=link_to("/new") do %>
+    <button class="btn btn-outline-primary rounded-pill mx-2" >新規投稿</button>
+  <%end%>
 <%=link_to("/login") do %>
     <button class="btn btn-primary rounded-pill mx-2" >Login</button>
   <%end%>
   <%=link_to("/signup") do %>
     <button class="btn btn-outline-primary rounded-pill mx-2" >Signup</button>
   <%end%>
-        </ul>
       </div>
     </div>
   </nav>

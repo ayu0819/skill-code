@@ -10,58 +10,47 @@
   </head>
 
   <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <div class="container"> <a class="navbar-brand" href="/">
-        <span class="text-primary">A</span>vant
-    </a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLight" aria-controls="navbarLight" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-      <div class="collapse navbar-collapse" id="navbarLight">
-        <ul class="navbar-nav ml-auto">
-           <% if session[:user_id] %>
+    <header>
+      <div class="header-logo">
+       <% if @current_user %>
+          <%= link_to("TweetApp", "/posts") %>
+        <% else %>
+          <%= link_to("TweetApp", "/") %>
+        <% end %>
+      </div>
+      <ul class="header-menus">
+        <% if @current_user %>
           <li>
-            現在ログインしているユーザーのid:
-            <!-- コードを追加し、中のユーザーのidを表示してください -->
-            <%= session[:user_id] %>
-          </li>
-      
-          <li class="nav-item dropdown mx-2"> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                About
-                </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown"> <a class="dropdown-item" href="#">Design</a> <a class="dropdown-item" href="#">Programming</a> <a class="dropdown-item" href="#">Consulting</a> <a class="dropdown-item" href="#">Hosting</a> <a class="dropdown-item" href="#">Editing</a> </div>
+            <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
           </li>
           <li>
-          <%= link_to("ユーザー一覧", "/member") %>
-        </li>
-        </ul>
-                   <%=link_to("/posts") do %>
-    <button class="btn btn-outline-primary rounded-pill mx-2" >新規投稿</button>
-  <%end%>
-<%=link_to("/login") do %>
-    <button class="btn btn-primary rounded-pill mx-2" >Login</button>
-  <%end%>
-  <%=link_to("/signup") do %>
-    <button class="btn btn-outline-primary rounded-pill mx-2" >Signup</button>
-  <%end%>
-  <li>
-            <!-- ログアウト用のリンクを追加してください -->
+            <%= link_to("投稿一覧", "/posts") %>
+          </li>
+          <li>
+            <%= link_to("新規投稿", "/posts/new") %>
+          </li>
+          <li>
+            <%= link_to("ユーザー一覧", "/member") %>
+          </li>
+          <li>
             <%= link_to("ログアウト", "/logout", {method: :post}) %>
           </li>
-   <% else %>
-    <%=link_to("/posts") do %>
-    <button class="btn btn-outline-primary rounded-pill mx-2" >新規投稿</button>
-  <%end%>
-<%=link_to("/login") do %>
-    <button class="btn btn-primary rounded-pill mx-2" >Login</button>
-  <%end%>
-  <%=link_to("/signup") do %>
-    <button class="btn btn-outline-primary rounded-pill mx-2" >Signup</button>
-  <%end%>
-    <% end %>
+        <% else %>
+
+          <li>
+            <%= link_to("新規登録", "/signup") %>
+          </li>
+          <li>
+            <%= link_to("ログイン", "/login") %>
+          </li>
+        <% end %>
+      </ul>
+    </header>
+      <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
       </div>
-    </div>
-  </nav>
+    <% end %>
     <%= yield %>
   </body>
 </html>

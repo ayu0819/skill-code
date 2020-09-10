@@ -19,7 +19,13 @@
     </button>
       <div class="collapse navbar-collapse" id="navbarLight">
         <ul class="navbar-nav ml-auto">
-         
+           <% if session[:user_id] %>
+          <li>
+            現在ログインしているユーザーのid:
+            <!-- コードを追加し、中のユーザーのidを表示してください -->
+            <%= session[:user_id] %>
+          </li>
+      
           <li class="nav-item dropdown mx-2"> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 About
                 </a>
@@ -38,6 +44,21 @@
   <%=link_to("/signup") do %>
     <button class="btn btn-outline-primary rounded-pill mx-2" >Signup</button>
   <%end%>
+  <li>
+            <!-- ログアウト用のリンクを追加してください -->
+            <%= link_to("ログアウト", "/logout", {method: :post}) %>
+          </li>
+   <% else %>
+    <%=link_to("/posts") do %>
+    <button class="btn btn-outline-primary rounded-pill mx-2" >新規投稿</button>
+  <%end%>
+<%=link_to("/login") do %>
+    <button class="btn btn-primary rounded-pill mx-2" >Login</button>
+  <%end%>
+  <%=link_to("/signup") do %>
+    <button class="btn btn-outline-primary rounded-pill mx-2" >Signup</button>
+  <%end%>
+    <% end %>
       </div>
     </div>
   </nav>

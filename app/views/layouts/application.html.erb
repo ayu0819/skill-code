@@ -1,56 +1,64 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Projectname</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Projectname</title>
+  <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-　　　<link href="/assets/avantui.min.css" rel="stylesheet">
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+      <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset-fonts-grids/reset-fonts-grids.css">
+      <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css">
+      <link href="/assets/avantui.min.css" rel="stylesheet">
+      <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <header class="mb-5 shadow-sm navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container">
+      <%=link_to("/") do %>
+        <h1 class="mt-2">skill code</h1>
+        <%end%> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLight" aria-controls="navbarLight" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+          <div class="collapse navbar-collapse" id="navbarLight">
+            <ul class="navbar-nav ml-auto">
+              <% if @current_user %>
+                <li>
+                  <%= link_to(@current_user.name, "/users/#{@current_user.id}",class: 'mt-2 nav-item navbar-nav mx-2') %>
+                </li>
+                <li>
+                  <%= link_to "投稿一覧", "/posts",class: 'mt-2 nav-item navbar-nav mx-2' %>
+                </li>
+                <li>
+                  <%= link_to "新規投稿", "/posts/new",class: 'mt-2 nav-item navbar-nav mx-2' %>
+                </li>
+                <li>
+                  <%= link_to "ユーザー一覧", "/member",class: 'mt-2 nav-item navbar-nav mx-2' %>
+                </li>
+            </ul>
+                <%=link_to("/logout", {method: :post}) do %> <button class="btn btn-primary rounded-pill mx-2">Logout</button>
+                  <%end%>
+           
+            <% else %>
+            <ul class="navbar-nav ml-auto">
+             <li class="mt-2 nav-item dropdown mx-2"> <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                About
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown"> <a class="dropdown-item" href="#">Design</a> <a class="dropdown-item" href="#">Programming</a> <a class="dropdown-item" href="#">Consulting</a> <a class="dropdown-item" href="#">Hosting</a> <a class="dropdown-item" href="#">Editing</a> </div>
+              </li>
+              </ul>
+              <%=link_to("/login") do %> <button class="btn btn-primary rounded-pill mx-2">Login</button>
+                <%end%>
+                  <%=link_to("/signup") do %> <button class="btn btn-outline-primary rounded-pill mx-2">Signup</button>
+                    <%end%>
+                      <% end %>
+          </div>
+    </div>
+  </header>
 
-  <body>
-    <header>
-      <div class="header-logo">
-       <% if @current_user %>
-          <%= link_to("TweetApp", "/posts") %>
-        <% else %>
-          <%= link_to("TweetApp", "/") %>
-        <% end %>
-      </div>
-      <ul class="header-menus">
-        <% if @current_user %>
-          <li>
-            <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
-          </li>
-          <li>
-            <%= link_to("投稿一覧", "/posts") %>
-          </li>
-          <li>
-            <%= link_to("新規投稿", "/posts/new") %>
-          </li>
-          <li>
-            <%= link_to("ユーザー一覧", "/member") %>
-          </li>
-          <li>
-            <%= link_to("ログアウト", "/logout", {method: :post}) %>
-          </li>
-        <% else %>
-
-          <li>
-            <%= link_to("新規登録", "/signup") %>
-          </li>
-          <li>
-            <%= link_to("ログイン", "/login") %>
-          </li>
-        <% end %>
-      </ul>
-    </header>
-      <% if flash[:notice] %>
-      <div class="flash">
-        <%= flash[:notice] %>
-      </div>
+  <% if flash[:notice] %>
+    <div class="flash">
+      <%= flash[:notice] %>
+    </div>
     <% end %>
-    <%= yield %>
-  </body>
+      <%= yield %>
+</body>
 </html>

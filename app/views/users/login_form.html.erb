@@ -1,24 +1,27 @@
-<div class="main users-new">
+<section class="bg-light py-5">
   <div class="container">
-    <div class="form-heading">ログイン</div>
     <div class="form users-form">
       <div class="form-body">
-        <!-- 指定されたHTMLを貼り付けてください -->
         <% if @error_message %>
           <div class="form-error">
             <%= @error_message %>
           </div>
-        <% end %>
-        <%= form_tag("/login") do %>
-          <p>メールアドレス</p>
-          <!-- value属性を追加してください -->
-          <input name="email" value="<%= @email %>">
-          <p>パスワード</p>
-          <!-- value属性を追加してください -->
-          <input type="password" name="password" value="<%= @password %>">
-          <input type="submit" value="ログイン">
-        <% end %>
+          <% end %>
+            <%= form_tag("/login") do %>
+              <h2>ログイン</h2>
+              <form>
+                <div class="form-group row my-4"> <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                  <div class="col-sm-10"> <input name="email" type="email" class="form-control" id="inputEmail3" placeholder="Email" value="<%= @email %>"> </div>
+                </div>
+                <div class="form-group row"> <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                  <div class="col-sm-10"> <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password" value="<%= @password %>"> </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-10"> <button type="submit" class="btn btn-primary">ログイン</button> </div>
+                </div>
+              </form>
+              <% end %>
       </div>
     </div>
   </div>
-</div>
+  </section>

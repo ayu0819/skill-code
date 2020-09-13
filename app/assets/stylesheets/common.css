@@ -98,3 +98,79 @@
   cursor: pointer;
 }
 
+.main{
+  position: relative;
+  background: #2c3e50;
+  height: 50vh;
+}
+
+.main__items{
+  position: relative;
+  top: 40%;
+}
+
+.wave {
+  position: absolute;
+  height: 70px;
+  width: 100%;
+  background: #2c3e50;
+  bottom: 0;
+}
+
+.wave::before, .wave::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+}
+
+.wave::before {
+  width: 55%;
+  height: 109%;
+  background-color: #fff;
+  right: -1.5%;
+  top: 60%;
+}
+.wave::after {
+  width: 55%;
+  height: 100%;
+  background-color: #2c3e50;
+  left: -1.5%;
+  top: 40%;
+}
+
+footer p {
+  margin: 0;
+}
+
+.card__block{
+width: 100%;
+max-width: 15.5rem;
+}
+
+
+
+
+.about{
+  padding-top:6rem;
+}
+.flash {
+  text-align: center;
+}
+
+.icon__colour-green{
+  color: #3cb371
+}
+
+.icon__colour-blue{
+  color: #1e90ff;
+}
+
+.icon__colour-gray{
+  color: gray;
+}
+
+.icon__colour-yellow{
+  color: #ffd700;
+}
+

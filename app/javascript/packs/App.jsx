@@ -33,8 +33,7 @@ class App extends React.Component {
   
       return (
         <div>
-          <h1>言語一覧</h1>
-          <div className='language'>
+          <div className='language my-4'>
             {/* 以下のコードを削除してください */}
             {/* ここまで */}
             {/* mapメソッドを用いて、Languageコンポーネントを表示してください */}

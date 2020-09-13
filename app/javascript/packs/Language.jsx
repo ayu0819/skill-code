@@ -44,23 +44,28 @@ class Language extends React.Component {
   </button>
 </div>
 </div>
+
+
+
       );
     }
     return (
-    
-      <div 
-      className='language-item'
-      onClick={() => {this.handleClickLesson()}}
-      >
-        <div className='language-name'>{this.props.name}</div>
+
+<div className='card w-25 m-2'
+onClick={() => {this.handleClickLesson()}}
+>
+<div className="card-body">
+ <div className='language-name'>{this.props.name}</div>
         <img 
           className='language-image' 
           src={this.props.image} 
         />
         {modal}
+    </div>
 </div>
     );
   }
 }
 
 export default Language;
+

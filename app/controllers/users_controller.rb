@@ -6,9 +6,13 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
+
+  def home
+  end
   
   def show
     @user = User.find_by(id: params[:id])
+    @goals = Goal.all
   end
   
   def new
@@ -19,7 +23,7 @@ class UsersController < ApplicationController
     @user = User.new(
       name: params[:name],
       email: params[:email],
-      image_name: "default_user.jpg",
+      # image_name: "default_user.jpg",
       password: params[:password]
     )
     if @user.save
@@ -62,7 +66,7 @@ class UsersController < ApplicationController
     if @user
       session[:user_id] = @user.id
       flash[:notice] = "ログインしました"
-      redirect_to("/skill")
+      redirect_to("/users/home")
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
       @email = params[:email]

@@ -7,6 +7,17 @@
       <% if @user.id == @current_user.id %>
         <%= link_to("編集", "/users/#{@user.id}/edit") %>
       <% end %>
+
+<% @goals.each do |goal| %>
+      <div>
+        <%= goal.title %>
+        <%= goal.description %>
+      </div>
+ <% end %>
+       <% if @user.id == @current_user.id %>
+        <%= link_to("編集", "/goal/#{@user.id}/edit") %>
+      <% end %>
+
     </div>
   </div>
   </section>

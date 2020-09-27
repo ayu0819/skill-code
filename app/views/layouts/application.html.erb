@@ -8,13 +8,16 @@
       <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css">
       <link href="/assets/avantui.min.css" rel="stylesheet">
       <link href="/assets/common.css" rel="stylesheet">
+       <link href="/assets/actiontext.css" rel="stylesheet">
+
+      
       <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
   <header class="shadow-sm navbar navbar-expand-lg navbar-light bg-white">
     <div class="container">
-      <%=link_to("/") do %>
+      <%=link_to("/users/home") do %>
         <h1 class="mt-2">skill code</h1>
         <%end%> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarLight" aria-controls="navbarLight" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -39,11 +42,6 @@
                   <%end%>
            
             <% else %>
-            <ul class="navbar-nav ml-auto">
-            <li>
-                  <%= link_to "about", "/member",class: 'mt-2 nav-item navbar-nav mx-2' %>
-                </li>
-              </ul>
               <%=link_to("/login") do %> <button class="btn btn-primary rounded-pill mx-2">Login</button>
                 <%end%>
                   <%=link_to("/signup") do %> <button class="btn btn-outline-primary rounded-pill mx-2">Signup</button>
@@ -66,6 +64,9 @@
       <footer class="bg-dark w-100 text-center">
 <p class="text-white py-3"><small>footer copy</small></p>
       </footer>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
 

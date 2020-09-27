@@ -32,7 +32,8 @@ class App extends React.Component {
       ];
   
       return (
-        <div>
+        <div className="container mt-5">
+          <h2 className="mt-5">言語一覧</h2>
           <div className='language my-4'>
             {/* 以下のコードを削除してください */}
             {/* ここまで */}

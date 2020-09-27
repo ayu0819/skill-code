@@ -7,7 +7,7 @@ class About extends React.Component {
       return (
     <div>
         
-<section className="bg-light text-center about">
+<section className="bg-light text-center about" id="about">
 
 <div className="container">
 

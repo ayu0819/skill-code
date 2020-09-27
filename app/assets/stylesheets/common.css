@@ -109,6 +109,17 @@
   top: 40%;
 }
 
+.jumbotron{
+  position: relative;
+  background: #2c3e50;
+  height: 50vh;
+}
+
+.jumbotron__items{
+  position: relative;
+  top: 40%;
+}
+
 .wave {
   position: absolute;
   height: 70px;
@@ -173,4 +184,5 @@ max-width: 15.5rem;
 .icon__colour-yellow{
   color: #ffd700;
 }
+
 
